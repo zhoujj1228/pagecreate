@@ -1,4 +1,4 @@
-package design.PageCreate.domain;
+package design.PageCreate.domain.container;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,8 @@ import java.util.List;
 import design.PageCreate.domain.style.CssStyle;
 
 public class Container {
+	//include container, row, col
+	private String type;
 	private String idName;
 	private List<String> classNameList;
 	private Container supContainer = null;
@@ -39,6 +41,14 @@ public class Container {
 	}
 	public void setSubContainerList(List<Container> subContainerList) {
 		this.subContainerList = subContainerList;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 	

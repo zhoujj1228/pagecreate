@@ -1,5 +1,5 @@
 package design.PageCreate.domain.style;
 
-public class IdCssStyle extends CssStyle{
+public abstract class IdCssStyle extends CssStyle{
 
 }

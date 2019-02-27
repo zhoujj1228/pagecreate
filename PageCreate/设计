@@ -1,0 +1,28 @@
+1.容器包括：框架容器，定位容器
+2.样式包括：Id样式，Class样式
+
+
+1.设计排版：容器-行s-列s
+其中容器使用多屏幕适配功能
+其中行宽度为100%
+
+/* 小型设备（平板电脑，768px 起） */
+@media (min-width: @screen-sm-min) { ... }
+
+/* 中型设备（台式电脑，992px 起） */
+@media (min-width: @screen-md-min) { ... }
+
+/* 大型设备（大台式电脑，1200px 起） */
+@media (min-width: @screen-lg-min) { ... }
+
+其中@screen-sm-min = 768px
+
+下面是 Bootstrap 网格的基本结构：
+<div class="container">
+   <div class="row">
+      <div class="col-*-*"></div>
+      <div class="col-*-*"></div>      
+   </div>
+   <div class="row">...</div>
+</div>
+<div class="container">....

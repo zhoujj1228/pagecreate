@@ -1,6 +1,8 @@
-package design.PageCreate.constant;
+package design.PageCreate.constant.css;
 
-public class CssConstants {
+public class CssValueConstants {
+	public static String lineBreakHeight = "20px";
+	
 	public static String width_full = "100%";
 
 	public static String float_left = "left";
@@ -20,6 +22,13 @@ public class CssConstants {
 	
 	//容器内元素垂直居中
 	public static String boxAlign_center = "center";
+
+	public static String backgroundColor_blue = "blue";
+
+	public static String width_1000px = "1000px";
+
+	public static String marginLeft_auto = "auto";
+	public static String marginRight_auto = "auto";
 	
 	
 }

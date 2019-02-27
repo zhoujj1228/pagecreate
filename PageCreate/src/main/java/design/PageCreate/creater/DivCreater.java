@@ -7,7 +7,7 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.junit.Test;
 
-import design.PageCreate.domain.Container;
+import design.PageCreate.domain.container.Container;
 import design.PageCreate.util.ListUtil;
 import design.PageCreate.util.XmlUtil;
 

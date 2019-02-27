@@ -1,15 +1,19 @@
 package design.PageCreate.design;
 
-import design.PageCreate.domain.Container;
+import design.PageCreate.domain.container.Container;
+import design.PageCreate.domain.container.RowContainer;
+import design.PageCreate.domain.container.TableContainer;
+import design.PageCreate.domain.container.impl.FixBoxContainer;
+import design.PageCreate.domain.container.impl.FullContainer;
 
 public class MyNavigationBarGrid {
 	public static void main(String[] args) {
-		Container navigationBarGrid = new Container();
-		Container textContainer = new Container();
-		Container searchContainer = new Container();
+		Container fullContainer = new FullContainer();
+		Container navBarContainer = new FixBoxContainer();
+		fullContainer.putSubContainer(navBarContainer);
 		
-		navigationBarGrid.putSubContainer(textContainer);
-		navigationBarGrid.putSubContainer(searchContainer);
+		Container navBarRowContainer = new RowContainer();
+		navBarContainer.putSubContainer(navBarRowContainer);
 		
 		Container textItem1 = new Container();
 		Container textItem2 = new Container();
@@ -17,11 +21,11 @@ public class MyNavigationBarGrid {
 		Container searchBoxItem = new Container();
 		Container searchTextItem = new Container();
 		
-		textContainer.putSubContainer(textItem1);
-		textContainer.putSubContainer(textItem2);
-		textContainer.putSubContainer(textItem3);
+		navBarRowContainer.putSubContainer(textItem1);
+		navBarRowContainer.putSubContainer(textItem2);
+		navBarRowContainer.putSubContainer(textItem3);
 		
-		searchContainer.putSubContainer(searchBoxItem);
-		searchContainer.putSubContainer(searchTextItem);
+		navBarRowContainer.putSubContainer(searchBoxItem);
+		navBarRowContainer.putSubContainer(searchTextItem);
 	}
 }
