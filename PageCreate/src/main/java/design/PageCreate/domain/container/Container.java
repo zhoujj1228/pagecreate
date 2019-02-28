@@ -9,13 +9,19 @@ public class Container {
 	//include container, row, col
 	private String type;
 	private String idName;
-	private List<String> classNameList;
+	private List<String> classNameList = new ArrayList<>();
 	private Container supContainer = null;
 	private List<Container> subContainerList = new ArrayList<>();
+	private List<CssStyle> cssStyleList = new ArrayList<>();
 	
-	public void putSubContainer(Container c){
+	public void addSubContainer(Container c){
 		c.setSupContainer(this);
 		subContainerList.add(c);
+	}
+	
+	public void addCssStyle(CssStyle css){
+		cssStyleList.add(css);
+		classNameList.add(css.getName());
 	}
 	
 	public String getIdName() {
@@ -49,6 +55,14 @@ public class Container {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public List<CssStyle> getCssStyleList() {
+		return cssStyleList;
+	}
+
+	public void setCssStyleList(List<CssStyle> cssStyleList) {
+		this.cssStyleList = cssStyleList;
 	}
 	
 	

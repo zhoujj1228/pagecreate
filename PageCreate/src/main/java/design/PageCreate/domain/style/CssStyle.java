@@ -3,7 +3,8 @@ package design.PageCreate.domain.style;
 import java.util.HashMap;
 
 public abstract class CssStyle {
-
+	
+	protected Media media;
 	protected String name;
 	protected HashMap<String, String> map = new HashMap<>();
 	

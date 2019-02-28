@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import design.PageCreate.domain.container.ColContainer;
 import design.PageCreate.domain.container.Container;
 import design.PageCreate.domain.container.RowContainer;
 import design.PageCreate.domain.container.impl.FixBoxContainer;
@@ -19,23 +20,23 @@ public class DivCreaterTest {
 
 		fullContainer = new FullContainer();
 		Container navBarContainer = new FixBoxContainer();
-		fullContainer.putSubContainer(navBarContainer);
+		fullContainer.addSubContainer(navBarContainer);
 		
 		Container navBarRowContainer = new RowContainer();
-		navBarContainer.putSubContainer(navBarRowContainer);
+		navBarContainer.addSubContainer(navBarRowContainer);
 		
-		Container textItem1 = new Container();
-		Container textItem2 = new Container();
-		Container textItem3 = new Container();
-		Container searchBoxItem = new Container();
-		Container searchTextItem = new Container();
+		Container textItem1 = new ColContainer();
+		Container textItem2 = new ColContainer();
+		Container textItem3 = new ColContainer();
+		Container searchBoxItem = new ColContainer();
+		Container searchTextItem = new ColContainer();
 		
-		navBarRowContainer.putSubContainer(textItem1);
-		navBarRowContainer.putSubContainer(textItem2);
-		navBarRowContainer.putSubContainer(textItem3);
+		navBarRowContainer.addSubContainer(textItem1);
+		navBarRowContainer.addSubContainer(textItem2);
+		navBarRowContainer.addSubContainer(textItem3);
 		
-		navBarRowContainer.putSubContainer(searchBoxItem);
-		navBarRowContainer.putSubContainer(searchTextItem);
+		navBarRowContainer.addSubContainer(searchBoxItem);
+		navBarRowContainer.addSubContainer(searchTextItem);
 	
 		dc = new DivCreater();
 	}

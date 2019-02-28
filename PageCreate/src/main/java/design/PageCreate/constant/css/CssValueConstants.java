@@ -29,6 +29,12 @@ public class CssValueConstants {
 
 	public static String marginLeft_auto = "auto";
 	public static String marginRight_auto = "auto";
+
+	public static String backgroundColor_orange = "orange";
+
+	public static String backgroundColor_yellow = "yellow";
+
+	public static String backgroundColor_purple = "purple";
 	
 	
 }
