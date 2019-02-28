@@ -3,13 +3,18 @@ package design.PageCreate.domain.container.impl;
 import design.PageCreate.domain.container.RowContainer;
 
 public class RowSplitContainer extends RowContainer<ColSplitContainer>{
-	private int rowSplitNum = 0;
+	public RowSplitContainer(double rowSplitNum){
+		this.rowSplitNum = rowSplitNum;
+	}
+	
+	private double rowSplitNum;
 
-	public int getRowSplitNum() {
+	public double getRowSplitNum() {
 		return rowSplitNum;
 	}
 
-	public void setRowSplitNum(int rowSplitNum) {
+	public void setRowSplitNum(double rowSplitNum) {
 		this.rowSplitNum = rowSplitNum;
 	}
+
 }

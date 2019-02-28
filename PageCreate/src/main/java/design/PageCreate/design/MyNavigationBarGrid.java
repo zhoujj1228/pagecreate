@@ -5,12 +5,13 @@ import java.util.List;
 
 import org.junit.Test;
 
-import design.PageCreate.domain.container.ColContainer;
 import design.PageCreate.domain.container.Container;
 import design.PageCreate.domain.container.RowContainer;
 import design.PageCreate.domain.container.TableContainer;
+import design.PageCreate.domain.container.impl.ColSplitContainer;
 import design.PageCreate.domain.container.impl.FixBoxContainer;
 import design.PageCreate.domain.container.impl.FullContainer;
+import design.PageCreate.domain.container.impl.RowSplitContainer;
 import design.PageCreate.domain.style.CssStyle;
 
 public class MyNavigationBarGrid {
@@ -27,14 +28,14 @@ public class MyNavigationBarGrid {
 		TableContainer navBarContainer = new FixBoxContainer();
 		fullContainer.addSubContainer(navBarContainer);
 		
-		RowContainer navBarRowContainer = new RowContainer();
+		RowSplitContainer navBarRowContainer = new RowSplitContainer(12);
 		navBarContainer.addSubContainer(navBarRowContainer);
 		
-		ColContainer textItem1 = new ColContainer();
-		ColContainer textItem2 = new ColContainer();
-		ColContainer textItem3 = new ColContainer();
-		ColContainer searchBoxItem = new ColContainer();
-		ColContainer searchTextItem = new ColContainer();
+		ColSplitContainer textItem1 = new ColSplitContainer(1);
+		ColSplitContainer textItem2 = new ColSplitContainer(1);
+		ColSplitContainer textItem3 = new ColSplitContainer(1);
+		ColSplitContainer searchBoxItem = new ColSplitContainer(8);
+		ColSplitContainer searchTextItem = new ColSplitContainer(1);
 		
 		navBarRowContainer.addSubContainer(textItem1);
 		navBarRowContainer.addSubContainer(textItem2);
