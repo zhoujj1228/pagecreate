@@ -7,6 +7,10 @@ import design.PageCreate.domain.container.TableContainer;
 import design.PageCreate.domain.style.impl.FullBoxStyle;
 
 public class FullContainer extends TableContainer {
+	public static void main(String[] args) {
+		
+	}
+	
 	public FullContainer(){
 		super();
 		FullBoxStyle fbs = new FullBoxStyle();

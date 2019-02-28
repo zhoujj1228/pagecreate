@@ -5,16 +5,16 @@ import java.util.List;
 
 import design.PageCreate.domain.style.CssStyle;
 
-public class Container {
+public class Container <T extends Container>{
 	//include container, row, col
 	private String type;
 	private String idName;
 	private List<String> classNameList = new ArrayList<>();
 	private Container supContainer = null;
-	private List<Container> subContainerList = new ArrayList<>();
+	private List<T> subContainerList = new ArrayList<>();
 	private List<CssStyle> cssStyleList = new ArrayList<>();
 	
-	public void addSubContainer(Container c){
+	public void addSubContainer(T c){
 		c.setSupContainer(this);
 		subContainerList.add(c);
 	}
@@ -42,10 +42,10 @@ public class Container {
 	public void setSupContainer(Container supContainer) {
 		this.supContainer = supContainer;
 	}
-	public List<Container> getSubContainerList() {
+	public List<T> getSubContainerList() {
 		return subContainerList;
 	}
-	public void setSubContainerList(List<Container> subContainerList) {
+	public void setSubContainerList(List<T> subContainerList) {
 		this.subContainerList = subContainerList;
 	}
 
