@@ -24,6 +24,11 @@ public class DivCreater {
 			String classStr = ListUtil.getStringByListAndSplitFlag(c.getClassNameList(), " ");
 			XmlUtil.createAttribute(rootElement, "class", classStr);
 		}
+		
+		if(c.getValue() != null){
+			rootElement.setText(c.getValue());
+		}
+		
 		List<Container> subContainerList = c.getSubContainerList();
 		for (Container subContainer : subContainerList) {
 			recursiveCreate(subContainer, rootElement);
@@ -45,6 +50,11 @@ public class DivCreater {
 			String classStr = ListUtil.getStringByListAndSplitFlag(c.getClassNameList(), " ");
 			XmlUtil.createAttribute(element, "class", classStr);
 		}
+		
+		if(c.getValue() != null){
+			element.setText(c.getValue());
+		}
+		
 		List<Container> subContainerList = c.getSubContainerList();
 		for (Container subContainer : subContainerList) {
 			recursiveCreate(subContainer, element);

@@ -10,10 +10,13 @@ public class Container <T extends Container>{
 	private String type;
 	private String idName;
 	private List<String> classNameList = new ArrayList<>();
-	private Container supContainer = null;
-	private List<T> subContainerList = new ArrayList<>();
+	protected Container supContainer = null;
+	protected List<T> subContainerList = new ArrayList<>();
 	private List<CssStyle> cssStyleList = new ArrayList<>();
 	
+	private String value;
+	
+
 	public void addSubContainer(T c){
 		c.setSupContainer(this);
 		subContainerList.add(c);
@@ -65,6 +68,13 @@ public class Container <T extends Container>{
 		this.cssStyleList = cssStyleList;
 	}
 	
-	
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
 	
 }

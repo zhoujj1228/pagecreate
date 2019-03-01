@@ -7,6 +7,7 @@ import design.PageCreate.domain.style.ClassCssStyle;
 public class IntervalColStyle extends ClassCssStyle{
 
 	protected IntervalColStyle() {
+		super();
 		this.name = "intervalCol";
 		map.put(CssKeyConstants.backgroundColor, CssValueConstants.backgroundColor_blue);
 		

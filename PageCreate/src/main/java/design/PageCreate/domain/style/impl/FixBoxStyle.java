@@ -7,6 +7,7 @@ import design.PageCreate.domain.style.ClassCssStyle;
 public class FixBoxStyle extends TableStyle {
 	
 	public FixBoxStyle(){
+		super();
 		this.name = "fixBox";
 		map.put(CssKeyConstants.backgroundColor, CssValueConstants.backgroundColor_red);
 		map.put(CssKeyConstants.width, CssValueConstants.width_1000px);

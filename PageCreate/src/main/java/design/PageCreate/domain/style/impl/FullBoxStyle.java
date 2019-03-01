@@ -5,6 +5,7 @@ import design.PageCreate.constant.css.CssValueConstants;
 
 public class FullBoxStyle extends TableStyle{
 	public FullBoxStyle(){
+		super();
 		this.name = "fullBox";
 		map.put(CssKeyConstants.backgroundColor, CssValueConstants.backgroundColor_purple);
 	}

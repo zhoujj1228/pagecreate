@@ -35,6 +35,8 @@ public class CssValueConstants {
 	public static String backgroundColor_yellow = "yellow";
 
 	public static String backgroundColor_purple = "purple";
+
+	public static String display_flex = "flex";
 	
 	
 }
