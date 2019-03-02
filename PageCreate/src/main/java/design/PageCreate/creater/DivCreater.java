@@ -7,7 +7,9 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.junit.Test;
 
+import design.PageCreate.domain.container.ColContainer;
 import design.PageCreate.domain.container.Container;
+import design.PageCreate.domain.element.ColElement;
 import design.PageCreate.util.ListUtil;
 import design.PageCreate.util.XmlUtil;
 
@@ -25,8 +27,9 @@ public class DivCreater {
 			XmlUtil.createAttribute(rootElement, "class", classStr);
 		}
 		
-		if(c.getValue() != null){
-			rootElement.setText(c.getValue());
+		if(c instanceof ColContainer){
+			ColElement element = ((ColContainer) c).getElement();
+			ElementCreater.create(rootElement, element);
 		}
 		
 		List<Container> subContainerList = c.getSubContainerList();
@@ -51,8 +54,11 @@ public class DivCreater {
 			XmlUtil.createAttribute(element, "class", classStr);
 		}
 		
-		if(c.getValue() != null){
-			element.setText(c.getValue());
+		if(c instanceof ColContainer){
+			ColElement colEle = ((ColContainer) c).getElement();
+			if(colEle != null) {
+				ElementCreater.create(element, colEle);
+			}
 		}
 		
 		List<Container> subContainerList = c.getSubContainerList();

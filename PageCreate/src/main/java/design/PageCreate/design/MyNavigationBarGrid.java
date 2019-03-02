@@ -16,6 +16,8 @@ import design.PageCreate.domain.container.impl.ColSplitContainer;
 import design.PageCreate.domain.container.impl.FixBoxContainer;
 import design.PageCreate.domain.container.impl.FullContainer;
 import design.PageCreate.domain.container.impl.RowSplitContainer;
+import design.PageCreate.domain.element.InputElement;
+import design.PageCreate.domain.element.LinkElement;
 import design.PageCreate.domain.style.CssStyle;
 
 public class MyNavigationBarGrid {
@@ -25,7 +27,6 @@ public class MyNavigationBarGrid {
 		new MyNavigationBarGrid().call();
 	}
 
-	@Test
 	public void call() {
 		CssCreater cssCreater = new CssCreater();
 		DivCreater divCreater = new DivCreater();
@@ -51,23 +52,46 @@ public class MyNavigationBarGrid {
 		RowSplitContainer<ColSplitContainer> navBarRowContainer = new RowSplitContainer<>(12);
 		navBarContainer.addSubContainer(navBarRowContainer);
 		
-		ColSplitContainer textItem1 = new ColSplitContainer(1);
-		ColSplitContainer textItem2 = new ColSplitContainer(1);
-		ColSplitContainer textItem3 = new ColSplitContainer(1);
-		ColSplitContainer searchBoxItem = new ColSplitContainer(8);
-		ColSplitContainer searchTextItem = new ColSplitContainer(1);
-		textItem1.setValue("textItem1");
-		textItem2.setValue("textItem2");
-		textItem3.setValue("textItem3");
-		searchBoxItem.setValue("searchBoxItem");
-		searchTextItem.setValue("searchTextItem");
+		ColSplitContainer textItemCol = new ColSplitContainer(9);
+		ColSplitContainer searchItemCol = new ColSplitContainer(3);
+
+		navBarRowContainer.addSubContainer(textItemCol);
+		navBarRowContainer.addSubContainer(searchItemCol);
 		
-		navBarRowContainer.addSubContainer(textItem1);
-		navBarRowContainer.addSubContainer(textItem2);
-		navBarRowContainer.addSubContainer(textItem3);
 		
-		navBarRowContainer.addSubContainer(searchBoxItem);
-		navBarRowContainer.addSubContainer(searchTextItem);
+		TableContainer<RowContainer> navItemContainer = new TableContainer<>();
+		textItemCol.addSubContainer(navItemContainer);
+		RowContainer<ColContainer> navItemsRow = new RowContainer<>();
+		navItemContainer.addSubContainer(navItemsRow);
+		ColContainer link1Container = new ColContainer();
+		ColContainer link2Container = new ColContainer();
+		ColContainer link3Container = new ColContainer();
+		LinkElement link1 = new LinkElement("link1","#", "");
+		LinkElement link2 = new LinkElement("link2","#", "");
+		LinkElement link3 = new LinkElement("link3","#", "");
+		link1Container.setElement(link1);
+		link2Container.setElement(link2);
+		link3Container.setElement(link3);
+		navItemsRow.addSubContainer(link1Container);
+		navItemsRow.addSubContainer(link2Container);
+		navItemsRow.addSubContainer(link3Container);
+		
+		TableContainer<RowContainer> navSearchContainer = new TableContainer<>();
+		textItemCol.addSubContainer(navSearchContainer);
+		RowContainer<ColContainer> navSearchRow = new RowContainer<>();
+		navSearchContainer.addSubContainer(navSearchRow);
+		ColContainer searchBoxCol = new ColContainer();
+		ColContainer searchTextCol = new ColContainer();
+		navSearchRow.addSubContainer(searchBoxCol);
+		navSearchRow.addSubContainer(searchTextCol);
+		
+		InputElement searchBox = new InputElement();
+		InputElement searchButton = new InputElement();
+		
+		searchBoxCol.setElement(searchBox);
+		searchTextCol.setElement(searchButton);
+		
+		
 		
 		return fullContainer;
 	}
