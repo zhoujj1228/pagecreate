@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.dom4j.Document;
+import org.dom4j.DocumentFactory;
 import org.dom4j.Element;
 import org.junit.Test;
 
@@ -15,7 +16,7 @@ import design.PageCreate.util.XmlUtil;
 
 public class DivCreater {
 	
-	public String create(Container c){
+	public Element create(Container c){
 		Document document = XmlUtil.createDocument();
 		Element rootElement = XmlUtil.createRootElement(document, "DIV");
 		if(c.getIdName() != null){
@@ -38,7 +39,7 @@ public class DivCreater {
 		}
 		
 		String result = rootElement.asXML();
-		return result;
+		return rootElement;
 	}
 
 	private void recursiveCreate(Container c, Element rootElement) {

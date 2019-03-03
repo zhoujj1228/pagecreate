@@ -1,13 +1,17 @@
 package design.PageCreate.design;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.dom4j.DocumentException;
+import org.dom4j.Element;
 import org.junit.Test;
 
 import design.PageCreate.creater.CssCreater;
 import design.PageCreate.creater.DivCreater;
+import design.PageCreate.creater.HtmlCreater;
 import design.PageCreate.domain.container.ColContainer;
 import design.PageCreate.domain.container.Container;
 import design.PageCreate.domain.container.RowContainer;
@@ -23,22 +27,27 @@ import design.PageCreate.domain.style.CssStyle;
 public class MyNavigationBarGrid {
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws DocumentException {
 		new MyNavigationBarGrid().call();
 	}
 
-	public void call() {
-		CssCreater cssCreater = new CssCreater();
-		DivCreater divCreater = new DivCreater();
+	/*
+	 * public void call() { CssCreater cssCreater = new CssCreater(); DivCreater
+	 * divCreater = new DivCreater(); Container<Container> rootContainer =
+	 * designContainer(); Element create = divCreater.create(rootContainer);
+	 * 
+	 * HashMap<String, String> cssnameContentMap =
+	 * cssCreater.getCssnameContentMap(rootContainer); for(String s :
+	 * cssnameContentMap.values()){ System.out.println(s); }
+	 * 
+	 * 
+	 * System.out.println(create); }
+	 */
+	
+	public void call() throws DocumentException {
 		Container<Container> rootContainer = designContainer();
-		String create = divCreater.create(rootContainer);
 		
-		HashMap<String, String> cssnameContentMap = cssCreater.getCssnameContentMap(rootContainer);
-		for(String s : cssnameContentMap.values()){
-			System.out.println(s);
-		}
-		
-
+		String create = HtmlCreater.create(new File("D:/Test/test.html"), "utf-8", rootContainer);
 		System.out.println(create);
 	}
 
@@ -60,9 +69,7 @@ public class MyNavigationBarGrid {
 		
 		
 		TableContainer<RowContainer> navItemContainer = new TableContainer<>();
-		textItemCol.addSubContainer(navItemContainer);
 		RowContainer<ColContainer> navItemsRow = new RowContainer<>();
-		navItemContainer.addSubContainer(navItemsRow);
 		ColContainer link1Container = new ColContainer();
 		ColContainer link2Container = new ColContainer();
 		ColContainer link3Container = new ColContainer();
@@ -75,9 +82,13 @@ public class MyNavigationBarGrid {
 		navItemsRow.addSubContainer(link1Container);
 		navItemsRow.addSubContainer(link2Container);
 		navItemsRow.addSubContainer(link3Container);
+
+		navItemContainer.addSubContainer(navItemsRow);
+		textItemCol.addSubContainer(navItemContainer);
+		
 		
 		TableContainer<RowContainer> navSearchContainer = new TableContainer<>();
-		textItemCol.addSubContainer(navSearchContainer);
+		searchItemCol.addSubContainer(navSearchContainer);
 		RowContainer<ColContainer> navSearchRow = new RowContainer<>();
 		navSearchContainer.addSubContainer(navSearchRow);
 		ColContainer searchBoxCol = new ColContainer();
@@ -85,8 +96,8 @@ public class MyNavigationBarGrid {
 		navSearchRow.addSubContainer(searchBoxCol);
 		navSearchRow.addSubContainer(searchTextCol);
 		
-		InputElement searchBox = new InputElement();
-		InputElement searchButton = new InputElement();
+		InputElement searchBox = new InputElement("text" , "searchbox");
+		LinkElement searchButton = new LinkElement("search","#", "#");
 		
 		searchBoxCol.setElement(searchBox);
 		searchTextCol.setElement(searchButton);

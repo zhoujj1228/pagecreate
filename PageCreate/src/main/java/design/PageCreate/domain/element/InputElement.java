@@ -4,9 +4,11 @@ public class InputElement extends ColElement {
 	private String type;
 	private String value;
 
-	public InputElement() {
+	public InputElement(String type, String value) {
 		super();
 		setTagName("input");
+		this.type = type;
+		this.value = value;
 	}
 
 	public String getValue() {

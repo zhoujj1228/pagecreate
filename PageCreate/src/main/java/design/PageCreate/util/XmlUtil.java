@@ -116,7 +116,8 @@ public class XmlUtil {
 			OutputFormat format = OutputFormat.createPrettyPrint();
 			format.setEncoding(encode);
 			format.setIndent("\t");
-			format.setNewLineAfterDeclaration(false);
+			format.setTrimText(false);
+			format.setNewLineAfterDeclaration(true);
 			writer = new XMLWriter(osWriter, format);
 			writer.write(document);
 			writer.flush();
