@@ -8,8 +8,10 @@ import org.junit.Test;
 import design.PageCreate.domain.container.ColContainer;
 import design.PageCreate.domain.container.Container;
 import design.PageCreate.domain.container.RowContainer;
-import design.PageCreate.domain.container.impl.FixBoxContainer;
-import design.PageCreate.domain.container.impl.FullContainer;
+import design.PageCreate.domain.container.impl.DefaultColContainer;
+import design.PageCreate.domain.container.impl.DefaultRowContainer;
+import design.PageCreate.domain.container.impl.table.FixBoxContainer;
+import design.PageCreate.domain.container.impl.table.FullContainer;
 
 public class DivCreaterTest {
 	Container fullContainer;
@@ -22,14 +24,14 @@ public class DivCreaterTest {
 		Container navBarContainer = new FixBoxContainer();
 		fullContainer.addSubContainer(navBarContainer);
 		
-		Container navBarRowContainer = new RowContainer();
+		Container navBarRowContainer = new DefaultRowContainer();
 		navBarContainer.addSubContainer(navBarRowContainer);
 		
-		Container textItem1 = new ColContainer();
-		Container textItem2 = new ColContainer();
-		Container textItem3 = new ColContainer();
-		Container searchBoxItem = new ColContainer();
-		Container searchTextItem = new ColContainer();
+		Container textItem1 = new DefaultColContainer();
+		Container textItem2 = new DefaultColContainer();
+		Container textItem3 = new DefaultColContainer();
+		Container searchBoxItem = new DefaultColContainer();
+		Container searchTextItem = new DefaultColContainer();
 		
 		navBarRowContainer.addSubContainer(textItem1);
 		navBarRowContainer.addSubContainer(textItem2);

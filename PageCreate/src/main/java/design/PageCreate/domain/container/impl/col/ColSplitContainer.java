@@ -1,7 +1,8 @@
-package design.PageCreate.domain.container.impl;
+package design.PageCreate.domain.container.impl.col;
 
 import design.PageCreate.domain.container.ColContainer;
 import design.PageCreate.domain.container.Container;
+import design.PageCreate.domain.container.impl.row.RowSplitContainer;
 
 public class ColSplitContainer extends ColContainer{
 	

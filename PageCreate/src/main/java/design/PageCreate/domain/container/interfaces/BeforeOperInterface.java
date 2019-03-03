@@ -1,7 +1,7 @@
 package design.PageCreate.domain.container.interfaces;
 
 import design.PageCreate.domain.container.Container;
-import design.PageCreate.domain.container.impl.ColSplitContainer;
+import design.PageCreate.domain.container.impl.col.ColSplitContainer;
 import design.PageCreate.domain.style.impl.ColSplitStyle;
 
 public interface BeforeOperInterface {

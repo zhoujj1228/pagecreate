@@ -16,10 +16,13 @@ import design.PageCreate.domain.container.ColContainer;
 import design.PageCreate.domain.container.Container;
 import design.PageCreate.domain.container.RowContainer;
 import design.PageCreate.domain.container.TableContainer;
-import design.PageCreate.domain.container.impl.ColSplitContainer;
-import design.PageCreate.domain.container.impl.FixBoxContainer;
-import design.PageCreate.domain.container.impl.FullContainer;
-import design.PageCreate.domain.container.impl.RowSplitContainer;
+import design.PageCreate.domain.container.impl.DefaultColContainer;
+import design.PageCreate.domain.container.impl.DefaultRowContainer;
+import design.PageCreate.domain.container.impl.DefaultTableContainer;
+import design.PageCreate.domain.container.impl.col.ColSplitContainer;
+import design.PageCreate.domain.container.impl.row.RowSplitContainer;
+import design.PageCreate.domain.container.impl.table.FixBoxContainer;
+import design.PageCreate.domain.container.impl.table.FullContainer;
 import design.PageCreate.domain.element.InputElement;
 import design.PageCreate.domain.element.LinkElement;
 import design.PageCreate.domain.style.CssStyle;
@@ -56,49 +59,46 @@ public class MyNavigationBarGrid {
 	private Container designContainer() {
 		TableContainer fullContainer = new FullContainer();
 		TableContainer navBarContainer = new FixBoxContainer();
-		fullContainer.addSubContainer(navBarContainer);
-		
 		RowSplitContainer navBarRowContainer = new RowSplitContainer(12);
-		navBarContainer.addSubContainer(navBarRowContainer);
-		
 		ColSplitContainer textItemCol = new ColSplitContainer(9);
 		ColSplitContainer searchItemCol = new ColSplitContainer(3);
 
+		navBarContainer.addSubContainer(navBarRowContainer);
+		fullContainer.addSubContainer(navBarContainer);
 		navBarRowContainer.addSubContainer(textItemCol);
 		navBarRowContainer.addSubContainer(searchItemCol);
 		
 		
 		TableContainer navItemContainer = new FullContainer();
-		RowContainer navItemsRow = new RowContainer();
-		ColContainer link1Container = new ColContainer();
-		ColContainer link2Container = new ColContainer();
-		ColContainer link3Container = new ColContainer();
+		RowContainer navItemsRow = new DefaultRowContainer();
+		ColContainer link1Container = new DefaultColContainer();
+		ColContainer link2Container = new DefaultColContainer();
+		ColContainer link3Container = new DefaultColContainer();
 		LinkElement link1 = new LinkElement("link1","#", "");
 		LinkElement link2 = new LinkElement("link2","#", "");
 		LinkElement link3 = new LinkElement("link3","#", "");
-		link1Container.setElement(link1);
-		link2Container.setElement(link2);
-		link3Container.setElement(link3);
+
+		textItemCol.addSubContainer(navItemContainer);
+		navItemContainer.addSubContainer(navItemsRow);
 		navItemsRow.addSubContainer(link1Container);
 		navItemsRow.addSubContainer(link2Container);
 		navItemsRow.addSubContainer(link3Container);
+		link1Container.setElement(link1);
+		link2Container.setElement(link2);
+		link3Container.setElement(link3);
+		
+		
+		TableContainer navSearchContainer = new DefaultTableContainer();
+		RowContainer navSearchRow = new DefaultRowContainer();
+		ColContainer searchBoxCol = new DefaultColContainer();
+		ColContainer searchTextCol = new DefaultColContainer();
+		InputElement searchBox = new InputElement("text" , "searchbox2");
+		LinkElement searchButton = new LinkElement("search","#", "#");
 
-		navItemContainer.addSubContainer(navItemsRow);
-		textItemCol.addSubContainer(navItemContainer);
-		
-		
-		TableContainer navSearchContainer = new TableContainer();
 		searchItemCol.addSubContainer(navSearchContainer);
-		RowContainer navSearchRow = new RowContainer();
 		navSearchContainer.addSubContainer(navSearchRow);
-		ColContainer searchBoxCol = new ColContainer();
-		ColContainer searchTextCol = new ColContainer();
 		navSearchRow.addSubContainer(searchBoxCol);
 		navSearchRow.addSubContainer(searchTextCol);
-		
-		InputElement searchBox = new InputElement("text" , "searchbox1");
-		LinkElement searchButton = new LinkElement("search","#", "#");
-		
 		searchBoxCol.setElement(searchBox);
 		searchTextCol.setElement(searchButton);
 		

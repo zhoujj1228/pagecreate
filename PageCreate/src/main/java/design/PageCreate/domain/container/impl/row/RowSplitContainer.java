@@ -1,9 +1,10 @@
-package design.PageCreate.domain.container.impl;
+package design.PageCreate.domain.container.impl.row;
 
 import java.util.List;
 
 import design.PageCreate.domain.container.Container;
 import design.PageCreate.domain.container.RowContainer;
+import design.PageCreate.domain.container.impl.col.ColSplitContainer;
 import design.PageCreate.domain.style.CssStyle;
 import design.PageCreate.domain.style.impl.ColSplitStyle;
 import design.PageCreate.domain.style.impl.FixBoxStyle;
