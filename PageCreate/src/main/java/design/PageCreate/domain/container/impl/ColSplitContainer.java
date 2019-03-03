@@ -26,9 +26,17 @@ public class ColSplitContainer extends ColContainer{
 	
 	@Override
 	public void setSupContainer(Container supContainer) {
+		
+		this.supContainer = supContainer;
+	}
+
+	@Override
+	public void beforeAddSubContainer(Container subContainer) {}
+
+	@Override
+	public void beforeSetSupContainer(Container supContainer) {
 		if(!(supContainer instanceof RowSplitContainer)){
 			throw new RuntimeException("supContainer must be RowSplitContainer");
 		}
-		this.supContainer = supContainer;
 	}
 }

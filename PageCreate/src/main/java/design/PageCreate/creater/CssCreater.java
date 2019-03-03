@@ -10,7 +10,7 @@ import design.PageCreate.domain.style.CssStyle;
 
 public class CssCreater {
 	
-	public HashMap<String, String> getCssnameContentMap(Container<Container> rootContainer) {
+	public HashMap<String, String> getCssnameContentMap(Container rootContainer) {
 		HashMap<String , String> cssnameContentMap = new HashMap<>();
 		List<CssStyle> cssStyleList = rootContainer.getCssStyleList();
 		for(CssStyle cssStyle : cssStyleList){

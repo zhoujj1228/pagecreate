@@ -2,7 +2,7 @@ package design.PageCreate.domain.container;
 
 import design.PageCreate.domain.element.ColElement;
 
-public class ColContainer extends Container{
+public abstract class ColContainer extends Container{
 	private ColElement element;
 	private int colInterval = 0;
 

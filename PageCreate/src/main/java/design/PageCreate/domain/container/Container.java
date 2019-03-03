@@ -4,17 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import design.PageCreate.domain.HtmlTag;
+import design.PageCreate.domain.container.interfaces.BeforeOperInterface;
 import design.PageCreate.domain.style.CssStyle;
 
-public class Container <T extends Container> extends HtmlTag{
+public abstract class Container extends HtmlTag implements BeforeOperInterface{
 	//include container, row, col
 	protected Container supContainer = null;
-	protected List<T> subContainerList = new ArrayList<>();
-	
-	private String value;
-	
+	protected List<Container> subContainerList = new ArrayList<>();
 
-	public void addSubContainer(T c){
+	public void addSubContainer(Container c){
+		beforeAddSubContainer(c);
 		c.setSupContainer(this);
 		subContainerList.add(c);
 	}
@@ -23,17 +22,15 @@ public class Container <T extends Container> extends HtmlTag{
 		return supContainer;
 	}
 	public void setSupContainer(Container supContainer) {
+		beforeSetSupContainer(supContainer);
 		this.supContainer = supContainer;
 	}
-	public List<T> getSubContainerList() {
+	public List<Container> getSubContainerList() {
 		return subContainerList;
 	}
-	public void setSubContainerList(List<T> subContainerList) {
+	public void setSubContainerList(List<Container> subContainerList) {
 		this.subContainerList = subContainerList;
 	}
 
 
-	
-
-	
 }

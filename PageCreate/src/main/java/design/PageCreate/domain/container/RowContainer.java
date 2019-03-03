@@ -4,7 +4,7 @@ import design.PageCreate.domain.style.CssStyle;
 import design.PageCreate.domain.style.impl.FixBoxStyle;
 import design.PageCreate.domain.style.impl.RowStyle;
 
-public class RowContainer<T extends ColContainer> extends Container<T>{
+public abstract class RowContainer extends Container{
 	public RowContainer(){
 		CssStyle rs = new RowStyle();
 		addCssStyle(rs);

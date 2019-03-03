@@ -45,7 +45,7 @@ public class MyNavigationBarGrid {
 	 */
 	
 	public void call() throws DocumentException {
-		Container<Container> rootContainer = designContainer();
+		Container rootContainer = designContainer();
 		
 		String create = HtmlCreater.create(new File("D:/Test/test.html"), "utf-8", rootContainer);
 		System.out.println(create);
@@ -58,7 +58,7 @@ public class MyNavigationBarGrid {
 		TableContainer navBarContainer = new FixBoxContainer();
 		fullContainer.addSubContainer(navBarContainer);
 		
-		RowSplitContainer<ColSplitContainer> navBarRowContainer = new RowSplitContainer<>(12);
+		RowSplitContainer navBarRowContainer = new RowSplitContainer(12);
 		navBarContainer.addSubContainer(navBarRowContainer);
 		
 		ColSplitContainer textItemCol = new ColSplitContainer(9);
@@ -68,8 +68,8 @@ public class MyNavigationBarGrid {
 		navBarRowContainer.addSubContainer(searchItemCol);
 		
 		
-		TableContainer<RowContainer> navItemContainer = new TableContainer<>();
-		RowContainer<ColContainer> navItemsRow = new RowContainer<>();
+		TableContainer navItemContainer = new FullContainer();
+		RowContainer navItemsRow = new RowContainer();
 		ColContainer link1Container = new ColContainer();
 		ColContainer link2Container = new ColContainer();
 		ColContainer link3Container = new ColContainer();
@@ -87,16 +87,16 @@ public class MyNavigationBarGrid {
 		textItemCol.addSubContainer(navItemContainer);
 		
 		
-		TableContainer<RowContainer> navSearchContainer = new TableContainer<>();
+		TableContainer navSearchContainer = new TableContainer();
 		searchItemCol.addSubContainer(navSearchContainer);
-		RowContainer<ColContainer> navSearchRow = new RowContainer<>();
+		RowContainer navSearchRow = new RowContainer();
 		navSearchContainer.addSubContainer(navSearchRow);
 		ColContainer searchBoxCol = new ColContainer();
 		ColContainer searchTextCol = new ColContainer();
 		navSearchRow.addSubContainer(searchBoxCol);
 		navSearchRow.addSubContainer(searchTextCol);
 		
-		InputElement searchBox = new InputElement("text" , "searchbox");
+		InputElement searchBox = new InputElement("text" , "searchbox1");
 		LinkElement searchButton = new LinkElement("search","#", "#");
 		
 		searchBoxCol.setElement(searchBox);

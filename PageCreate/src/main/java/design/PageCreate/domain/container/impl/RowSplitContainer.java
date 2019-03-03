@@ -1,11 +1,14 @@
 package design.PageCreate.domain.container.impl;
 
+import java.util.List;
+
+import design.PageCreate.domain.container.Container;
 import design.PageCreate.domain.container.RowContainer;
 import design.PageCreate.domain.style.CssStyle;
 import design.PageCreate.domain.style.impl.ColSplitStyle;
 import design.PageCreate.domain.style.impl.FixBoxStyle;
 
-public class RowSplitContainer<T extends ColSplitContainer> extends RowContainer<T>{
+public class RowSplitContainer extends RowContainer{
 	private int rowSplitNum = 0;
 
 	public RowSplitContainer(int rowSplitNum){
@@ -13,14 +16,6 @@ public class RowSplitContainer<T extends ColSplitContainer> extends RowContainer
 		this.rowSplitNum = rowSplitNum;
 	}
 	
-	public void addSubContainer(T c){
-		double colHoldPercent = (double)c.getColHoldPart() / (double)rowSplitNum * 100;
-		ColSplitStyle colSplitStyle = new ColSplitStyle(colHoldPercent, c.getColHoldPart(), rowSplitNum);
-		c.addCssStyle(colSplitStyle);
-		
-		c.setSupContainer(this);
-		subContainerList.add(c);
-	}
 	
 	
 	public int getRowSplitNum() {
@@ -30,4 +25,16 @@ public class RowSplitContainer<T extends ColSplitContainer> extends RowContainer
 	public void setRowSplitNum(int rowSplitNum) {
 		this.rowSplitNum = rowSplitNum;
 	}
+
+	@Override
+	public void beforeAddSubContainer(Container subContainer) {
+		ColSplitContainer splitCol = (ColSplitContainer) subContainer;
+		double colHoldPercent = (double)splitCol.getColHoldPart() / (double)rowSplitNum * 100;
+		ColSplitStyle colSplitStyle = new ColSplitStyle(colHoldPercent, splitCol.getColHoldPart(), rowSplitNum);
+		subContainer.addCssStyle(colSplitStyle);
+		
+	}
+
+	@Override
+	public void beforeSetSupContainer(Container supContainer) {}
 }
